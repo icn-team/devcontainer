@@ -6,7 +6,7 @@ ready for compiling/debuggin/testing the hicn stack.
 
 ## Hot to use
 
-Install Docker on your development machine: https://docs.docker.com/ and run it.
+Install Docker on your development machine (https://docs.docker.com/) and run it.
 
 Clone the hicn software stack:
 
