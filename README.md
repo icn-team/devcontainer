@@ -20,7 +20,7 @@ Add this repo under the folder `.devcontainer` inside the hicn repository:
 git submodule add git@github.com:icn-team/devcontainer.git .devcontainer
 ```
 
-Open VSCode and install the extension Remote - Containers (id: ms-vscode-remote.remote-containers).
+Open VSCode and install the extension `Remote - Containers` (id: `ms-vscode-remote.remote-containers`).
 Then press `ctrl + shift + p` and write `Remote-Containers: Reopen in Container`.
 
 Give to the docker the time to build the container and you are done :)
