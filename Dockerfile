@@ -38,8 +38,5 @@ RUN apt-get update \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
-RUN sed -i "s,\(cli-listen /run/vpp/cli.sock\),\1\n  exec /etc/vpp/startup," /etc/vpp/startup.conf \
-  && echo "hicn control start" > /etc/vpp/startup
-
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=

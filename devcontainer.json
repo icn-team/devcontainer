@@ -14,7 +14,9 @@
 		"net.ipv6.conf.all.disable_ipv6=0",
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
-		"seccomp=unconfined"
+		"seccomp=unconfined",
+		"-v",
+		"/tmp/memif:/memif"
 	],
 	// Uncomment the next line if you want to publish any ports.
 	// "appPort": [],
