@@ -4,6 +4,7 @@ services:
        build: .
        stdin_open: true
        tty: true
+       working_dir: /workspace
        container_name: vpp_master
        hostname: master
        volumes:
