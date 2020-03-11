@@ -9,7 +9,7 @@ services:
        entrypoint: /bin/bash
        volumes:
             - /tmp/memif:/memif
-            - .:/workspace
+            - ..:/workspace
     vpp_slave:
         build: .
         container_name: vpp_slave
@@ -19,7 +19,7 @@ services:
         entrypoint: /bin/bash
         volumes:
              - /tmp/memif:/memif
-             - .:/workspace
+             - ..:/workspace
     dev:
         build: .
         container_name: vpp_dev
@@ -28,5 +28,5 @@ services:
         tty: true
         entrypoint: /bin/bash
         volumes:
-             - .:/workspace
+             - ..:/workspace
 
