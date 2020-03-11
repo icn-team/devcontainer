@@ -1,0 +1,32 @@
+version: "3"
+services:
+    vpp_master:
+       build: .
+       container_name: vpp_master
+       hostname: master
+       stdin_open: true
+       tty: true
+       entrypoint: /bin/bash
+       volumes:
+            - /tmp/memif:/memif
+            - .:/workspace
+    vpp_slave:
+        build: .
+        container_name: vpp_slave
+        hostname: slave
+        stdin_open: true
+        tty: true
+        entrypoint: /bin/bash
+        volumes:
+             - /tmp/memif:/memif
+             - .:/workspace
+    dev:
+        build: .
+        container_name: vpp_dev
+        hostname: dev
+        stdin_open: true
+        tty: true
+        entrypoint: /bin/bash
+        volumes:
+             - .:/workspace
+
