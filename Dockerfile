@@ -20,6 +20,7 @@ RUN apt-get update \
   #
   # Install hicn libs && C++ tools
   && curl -s https://packagecloud.io/install/repositories/fdio/release/script.deb.sh | bash \
+  && curl -s https://packagecloud.io/install/repositories/fdio/hicn/script.deb.sh | bash \
   && apt-get -y update \
   && apt-get -y install build-essential cmake cppcheck valgrind libasio-dev libparc-dev \
   libconfig-dev vpp libvppinfra vpp-plugin-core \
