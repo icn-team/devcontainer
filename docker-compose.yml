@@ -1,12 +1,12 @@
 version: "3"
 services:
-    vpp_master:
+    vpp_server:
        build: .
        stdin_open: true
        tty: true
        working_dir: /workspace
-       container_name: vpp_master
-       hostname: master
+       container_name: vpp_server
+       hostname: server
        volumes:
             - /tmp/memif:/memif
             - ..:/workspace
@@ -20,13 +20,13 @@ services:
           set int ip addr memif1/0 192.168.1.1/24
           EOF
           /bin/bash
-    vpp_slave:
+    vpp_client:
         build: .
         stdin_open: true
         tty: true
         working_dir: /workspace
-        container_name: vpp_slave
-        hostname: slave
+        container_name: vpp_client
+        hostname: client
         volumes:
              - /tmp/memif:/memif
              - ..:/workspace
