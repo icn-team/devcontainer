@@ -49,4 +49,4 @@ services:
         working_dir: /workspace
         volumes:
              - ..:/workspace
-
+        entrypoint: [/bin/bash, -c]
