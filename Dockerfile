@@ -30,7 +30,7 @@ RUN apt-get update \
   && curl -s https://packagecloud.io/install/repositories/fdio/hicn/script.deb.sh | bash \
   && apt-get -y update \
   && apt-get -y install build-essential cmake cppcheck valgrind libasio-dev libparc-dev \
-  libconfig-dev vpp libvppinfra vpp-plugin-core \
+  libconfig-dev vpp libvppinfra vpp-plugin-core libmemif libmemif-dev \
   vpp-dev vpp-plugin-dpdk libparc libparc-dev python3-ply python python-ply \
   #
   # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
