@@ -13,6 +13,13 @@ SHELL ["/bin/bash", "-c"]
 
 # Configure apt and install packages
 RUN apt-get update \
+  && apt-get -y install --no-install-recommends apt-utils sudo dialog build-essential 	\
+    cmake cppcheck valgrind curl autoconf automake ccache debhelper dkms git libtool  	\
+    libapr1-dev dh-systemd libconfuse-dev git-review exuberant-ctags cscope pkg-config	\
+    lcov chrpath autoconf indent clang-format libnuma-dev python-all python3-all      	\
+    python3-setuptools python-dev python-virtualenv python-pip libffi6 check          	\
+    libboost-all-dev libffi-dev python3-ply libmbedtls-dev  cmake ninja-build uuid-dev 	\
+    python3-jsonschema gdb libssl-dev python-setuptools zsh 				\
   && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
   #
   # Verify git, process tools, lsb-release (useful for CLI installs) installed
