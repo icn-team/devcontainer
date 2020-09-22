@@ -2,7 +2,6 @@ version: "3"
 services:
     vpp_server:
        build: .
-       privileged: true
        stdin_open: true
        tty: true
        working_dir: /workspace
@@ -28,7 +27,6 @@ services:
           /bin/bash
     vpp_client:
         build: .
-        privileged: true
         stdin_open: true
         tty: true
         working_dir: /workspace
