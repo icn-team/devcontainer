@@ -16,10 +16,13 @@ services:
           tee -a /etc/vpp/startup.conf <<EOF
           plugins {
                plugin default { disable }
-               plugin dpdk_plugin.so { enable }
+               plugin memif { enable }
                plugin hicn_plugin.so { enable }
           }
-          create interface memif socket id 1 filename /memif/memif1.sock
+          unix { exec | startup-config  /etc/vpp/interface-up.txt }
+          EOF
+          tee -a /etc/vpp/interface-up.txt <<EOF
+          create memif socket id 1 filename /memif/memif1.sock
           create interface memif id 0 socket-id 1 master
           set int state memif1/0 up
           set int ip addr memif1/0 192.168.1.1/24
@@ -41,10 +44,13 @@ services:
           tee -a /etc/vpp/startup.conf <<EOF
           plugins {
                plugin default { disable }
-               plugin memif_plugin.so { enable }
+               plugin memif { enable }
                plugin hicn_plugin.so { enable }
           }
-          create interface memif socket id 1 filename /memif/memif1.sock
+          unix { exec | startup-config  /etc/vpp/interface-up.txt }
+          EOF
+          tee -a /etc/vpp/interface-up.txt <<EOF
+          create memif socket id 1 filename /memif/memif1.sock
           create interface memif id 0 socket-id 1 slave
           set int state memif1/0 up
           set int ip addr memif1/0 192.168.1.2/24
