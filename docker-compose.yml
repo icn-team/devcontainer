@@ -18,9 +18,9 @@ services:
                plugin default { enable }
                plugin hicn_plugin.so { enable }
           }
-          unix { exec | startup-config  /etc/vpp/interface-up.txt }
+          unix { exec | startup-config  /etc/vpp/client-up.txt }
           EOF
-          tee -a /etc/vpp/interface-up.txt <<EOF
+          tee -a /etc/vpp/client-up.txt <<EOF
           create memif socket id 1 filename /memif/memif1.sock
           create interface memif id 0 socket-id 1 master
           set int state memif1/0 up
@@ -49,9 +49,9 @@ services:
                plugin default { enable }
                plugin hicn_plugin.so { enable }
           }
-          unix { exec | startup-config  /etc/vpp/interface-up.txt }
+          unix { exec | startup-config  /etc/vpp/server-up.txt }
           EOF
-          tee -a /etc/vpp/interface-up.txt <<EOF
+          tee -a /etc/vpp/server-up.txt <<EOF
           create memif socket id 1 filename /memif/memif1.sock
           create interface memif id 0 socket-id 1 slave
           set int state memif1/0 up
