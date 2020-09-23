@@ -5,7 +5,7 @@ services:
        stdin_open: true
        tty: true
        working_dir: /workspace
-       container_name: vpp_server
+       container_name: vpp_client
        hostname: server
        volumes:
             - /tmp/memif:/memif
@@ -36,7 +36,7 @@ services:
         stdin_open: true
         tty: true
         working_dir: /workspace
-        container_name: vpp_client
+        container_name: vpp_server
         hostname: client
         volumes:
              - /tmp/memif:/memif
