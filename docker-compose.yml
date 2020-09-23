@@ -16,7 +16,6 @@ services:
           tee -a /etc/vpp/startup.conf <<EOF
           plugins {
                plugin default { enable }
-               plugin memif { enable }
                plugin hicn_plugin.so { enable }
           }
           unix { exec | startup-config  /etc/vpp/interface-up.txt }
@@ -44,7 +43,6 @@ services:
           tee -a /etc/vpp/startup.conf <<EOF
           plugins {
                plugin default { enable }
-               plugin memif { enable }
                plugin hicn_plugin.so { enable }
           }
           unix { exec | startup-config  /etc/vpp/interface-up.txt }
