@@ -15,7 +15,7 @@ services:
         - |
           tee -a /etc/vpp/startup.conf <<EOF
           plugins {
-               plugin default { disable }
+               plugin default { enable }
                plugin memif { enable }
                plugin hicn_plugin.so { enable }
           }
@@ -43,7 +43,7 @@ services:
         - |
           tee -a /etc/vpp/startup.conf <<EOF
           plugins {
-               plugin default { disable }
+               plugin default { enable }
                plugin memif { enable }
                plugin hicn_plugin.so { enable }
           }
