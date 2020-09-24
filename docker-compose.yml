@@ -1,6 +1,6 @@
 version: "3"
 services:
-    vpp_server:
+    vpp_client:
        build: .
        stdin_open: true
        tty: true
@@ -31,7 +31,7 @@ services:
           hicn enable b002::1/64
           EOF
           /bin/bash
-    vpp_client:
+    vpp_server:
         build: .
         stdin_open: true
         tty: true
