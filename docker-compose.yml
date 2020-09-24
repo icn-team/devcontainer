@@ -6,7 +6,7 @@ services:
        tty: true
        working_dir: /workspace
        container_name: vpp_client
-       hostname: server
+       hostname: client
        volumes:
             - /tmp/memif:/memif
             - ..:/workspace
@@ -37,7 +37,7 @@ services:
         tty: true
         working_dir: /workspace
         container_name: vpp_server
-        hostname: client
+        hostname: server
         volumes:
              - /tmp/memif:/memif
              - ..:/workspace
