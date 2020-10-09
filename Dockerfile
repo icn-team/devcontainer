@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,25 +13,21 @@ SHELL ["/bin/bash", "-c"]
 
 # Configure apt and install packages
 RUN apt-get update \
-  && apt-get -y install --no-install-recommends apt-utils sudo dialog build-essential 	\
-    cmake cppcheck valgrind curl autoconf automake ccache debhelper dkms git libtool  	\
-    libapr1-dev dh-systemd libconfuse-dev git-review exuberant-ctags cscope pkg-config	\
-    lcov chrpath autoconf indent clang-format libnuma-dev python-all python3-all      	\
-    python3-setuptools python-dev python-virtualenv python-pip libffi6 check          	\
-    libboost-all-dev libffi-dev python3-ply libmbedtls-dev  cmake ninja-build uuid-dev 	\
-    python3-jsonschema gdb libssl-dev python-setuptools zsh 				\
+  && apt-get -y install --no-install-recommends \
+    cmake cppcheck valgrind curl git libtool  	\
+    libconfuse-dev git-review exuberant-ctags cscope pkg-config	python3-all \
+    python3-setuptools python-dev python3-virtualenv python3-pip  check \
+    libboost-all-dev libffi-dev python3-ply ninja-build uuid-dev 	\
+    python3-jsonschema gdb libssl-dev python3-setuptools zsh 				\
+    valgrind libasio-dev libparc-dev libasio-dev libconfig-dev 
   && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-  #
-  # Verify git, process tools, lsb-release (useful for CLI installs) installed
-  && apt-get -y install git procps lsb-release curl iproute2 \
-  #
   # Install hicn libs && C++ tools
-  && curl -s https://packagecloud.io/install/repositories/fdio/release/script.deb.sh | bash \
-  && curl -s https://packagecloud.io/install/repositories/fdio/hicn/script.deb.sh | bash \
-  && apt-get -y update \
-  && apt-get -y install build-essential cmake cppcheck valgrind libasio-dev libparc-dev \
-  libconfig-dev vpp libvppinfra vpp-plugin-core libmemif libmemif-dev \
-  vpp-dev vpp-plugin-dpdk libparc libparc-dev python3-ply python python-ply \
+  #&& curl -s https://packagecloud.io/install/repositories/fdio/release/script.deb.sh | bash \
+  #&& curl -s https://packagecloud.io/install/repositories/fdio/hicn/script.deb.sh | bash \
+  #&& apt-get -y update \
+  #&& apt-get -y install build-essential cmake cppcheck valgrind libasio-dev libparc-dev \
+  #libconfig-dev vpp libvppinfra vpp-plugin-core libmemif libmemif-dev \
+  #vpp-dev vpp-plugin-dpdk libparc libparc-dev python3-ply python python-ply \
   #
   # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
   && groupadd --gid $USER_GID $USERNAME \
