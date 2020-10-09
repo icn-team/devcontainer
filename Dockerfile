@@ -20,7 +20,6 @@ RUN apt-get update \
     libboost-all-dev libffi-dev python3-ply ninja-build uuid-dev 	\
     python3-jsonschema gdb libssl-dev python3-setuptools zsh 				\
     valgrind libasio-dev libparc-dev libasio-dev libconfig-dev 
-  && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
   # Install hicn libs && C++ tools
   #&& curl -s https://packagecloud.io/install/repositories/fdio/release/script.deb.sh | bash \
   #&& curl -s https://packagecloud.io/install/repositories/fdio/hicn/script.deb.sh | bash \
