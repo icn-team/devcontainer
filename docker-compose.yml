@@ -15,9 +15,11 @@ services:
         - |
           mkdir -p /var/log/vpp
           tee -a /etc/vpp/startup.conf <<EOF
+          cpu { main-core 1 }
           plugins {
                plugin default { disable }
                plugin acl_plugin.so { enable }
+               plugin dpdk_plugin.so { enable }
                plugin ping_plugin.so { enable }
                plugin memif_plugin.so { enable }
                plugin hicn_plugin.so { enable }
@@ -54,9 +56,11 @@ services:
         - |
           mkdir -p /var/log/vpp
           tee -a /etc/vpp/startup.conf <<EOF
+          cpu { main-core 2 }
           plugins {
                plugin default { disable }
                plugin acl_plugin.so { enable }
+               plugin dpdk_plugin.so { enable }
                plugin ping_plugin.so { enable }
                plugin memif_plugin.so { enable }
                plugin hicn_plugin.so { enable }
