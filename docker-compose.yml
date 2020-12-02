@@ -22,6 +22,7 @@ services:
                plugin dpdk_plugin.so { enable }
                plugin ping_plugin.so { enable }
                plugin memif_plugin.so { enable }
+               plugin nsim_plugin.so { enable }
                plugin hicn_plugin.so { enable }
           }
           unix { exec | startup-config  /etc/vpp/client-up.txt }
@@ -63,6 +64,7 @@ services:
                plugin dpdk_plugin.so { enable }
                plugin ping_plugin.so { enable }
                plugin memif_plugin.so { enable }
+               plugin nsim_plugin.so { enable }
                plugin hicn_plugin.so { enable }
           }
           unix { exec | startup-config  /etc/vpp/server-up.txt }
@@ -73,9 +75,11 @@ services:
           set int state memif1/0 up
           set int ip addr memif1/0 192.168.1.2/24
           set int ip addr memif1/0 2001::2/64
+          set nsim delay 20 ms bandwidth 0.1 gbit packet-size 128
+          nsim output-feature enable-disable memif1/0 
           EOF
           sleep 2
           vpp -c /etc/vpp/startup.conf &
           sleep 10
-          hiperf -S b002::/64
+          hiperf -S b002::/64 &
           /bin/bash
