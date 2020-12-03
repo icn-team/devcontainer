@@ -1,0 +1,21 @@
+version: "3"
+services:
+    vpp_dev:
+       build: .
+       stdin_open: true
+       tty: true
+       working_dir: /workspace
+       container_name: vpp_dev
+       hostname: dev
+       volumes:
+            - ..:/workspace
+       entrypoint: [/bin/bash, -c]
+       command: 
+        - |
+          mkdir -p build-dev
+          cd build-dev
+          cmake -DCMAKE_INSTALL_PREFIX=/usr \
+                -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl\@1.1 \
+                -DBUILD_APPS=ON \
+                -DBUILD_HICNPLUGIN=ON ..
+          make -j4 install

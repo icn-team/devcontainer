@@ -13,6 +13,8 @@ services:
        entrypoint: [/bin/bash, -c]
        command: 
         - |
+          cd build-dev
+          make install
           mkdir -p /var/log/vpp
           tee -a /etc/vpp/startup.conf <<EOF
           cpu { main-core 1 }
@@ -39,8 +41,8 @@ services:
           sleep 5
           vpp -c /etc/vpp/startup.conf &
           sleep 20
-          vppctl hicn enable b002::1/64
-          hiperf -C b002::1
+          vppctl hicn enable b002::1
+          hiperf -C -R b002::1
           /bin/bash
     vpp_server:
         build: .
@@ -55,6 +57,8 @@ services:
         entrypoint: [/bin/bash, -c]
         command: 
         - |
+          cd build-dev
+          make install
           mkdir -p /var/log/vpp
           tee -a /etc/vpp/startup.conf <<EOF
           cpu { main-core 2 }
@@ -81,5 +85,5 @@ services:
           sleep 2
           vpp -c /etc/vpp/startup.conf &
           sleep 10
-          hiperf -S b002::/64 &
+          hiperf -S -R -B 4000kbps b002::1
           /bin/bash

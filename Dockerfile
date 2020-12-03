@@ -12,7 +12,7 @@ RUN curl -s https://packagecloud.io/install/repositories/fdio/hicn/script.deb.sh
 RUN curl -s https://packagecloud.io/install/repositories/fdio/release/script.deb.sh | bash
 
 RUN apt-get update && apt-get install -y supervisor hicn-plugin libhicn \
-            vpp-plugin-core  vpp libvppinfra libmemif \
+            vpp-plugin-core  vpp libvppinfra libmemif libparc \
             libssh-4 openssl libpcre3 hicn-apps-memif hicn-utils-memif
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -23,6 +23,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   libasio-dev \
   vpp-dev \
   libhicn-dev \
+  libparc-dev \
   hicn-plugin-dev \
   libmemif-dev \
   libssh-dev \
