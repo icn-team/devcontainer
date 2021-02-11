@@ -19,6 +19,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   git \
   cmake \
   build-essential \
+  clang \
+  gdb \
   pkg-config \
   libasio-dev \
   vpp-dev \
@@ -30,6 +32,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   libssl-dev \
   libpcre3-dev \
   python3-ply \
+  libgtest-dev \
   --no-install-recommends 
   
 RUN apt-get autoremove -y \
