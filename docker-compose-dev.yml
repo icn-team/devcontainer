@@ -12,10 +12,25 @@ services:
        entrypoint: [/bin/bash, -c]
        command: 
         - |
+          mkdir -p libfec/build-dev
+          cd libfec/build-dev
+          cmake ..
+          make
+          make install
+          cd ../../
+          mkdir -p rely/build-dev
+          cd rely/build-dev
+          cmake ..
+          make
+          make install
+          cd ../../
           mkdir -p build-dev
           cd build-dev
           cmake -DCMAKE_INSTALL_PREFIX=/usr \
                 -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl\@1.1 \
                 -DBUILD_APPS=ON \
+                -DBUILD_TESTS=ON \
                 -DBUILD_HICNPLUGIN=ON ..
-          make -j4 install
+          make -j8 install
+          make test
+          /bin/bash
