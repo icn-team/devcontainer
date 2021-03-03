@@ -1,7 +1,8 @@
 version: "3"
 services:
     vpp_dev:
-       build: .
+       #build: .
+       image: icnteam/dev 
        stdin_open: true
        tty: true
        working_dir: /workspace
