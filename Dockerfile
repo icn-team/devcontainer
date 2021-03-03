@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:20.04
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -7,6 +7,8 @@ SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update
 RUN apt-get install -y git ssh curl wget
+
+ENV VPP_INSTALL_SKIP_SYSCTL=1
 
 RUN curl -s https://packagecloud.io/install/repositories/fdio/hicn/script.deb.sh | bash
 RUN curl -s https://packagecloud.io/install/repositories/fdio/release/script.deb.sh | bash
