@@ -33,6 +33,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   libpcre3-dev \
   python3-ply \
   libgtest-dev \
+  valgrind \
   --no-install-recommends 
   
 RUN apt-get autoremove -y \
