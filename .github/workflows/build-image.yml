@@ -17,7 +17,7 @@ jobs:
     - name: 'Checkout'
       uses: actions/checkout@v2
     - name: Create Image and Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: icnteam/dev:latest
         username: ${{ secrets.DOCKER_USERNAME }}
